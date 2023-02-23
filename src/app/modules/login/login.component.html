@@ -1,0 +1,17 @@
+<div class="container">
+
+    <div class="row" style="padding-top:20px">
+        <mat-form-field formControlName="user" class="col-12">
+            <mat-label>User</mat-label>
+            <input matInput placeholder="User" [(ngModel)]="userValue">
+        </mat-form-field>
+        <mat-form-field class="col-12" formControlName="password">
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" required
+                [(ngModel)]="passwordValue">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' :'visibility'}}</mat-icon>
+            <mat-hint *ngIf="!passwordValue">Enter your password</mat-hint>
+        </mat-form-field>
+        <button mat-button (click)="login()" class="col-2">Login</button>
+        <label class="col-4" *ngIf="showError"> Incorrect user/password</label>
+    </div>
+</div>
